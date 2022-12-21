@@ -24,7 +24,6 @@ namespace Battle_Ship
             //Készülődés
 
             //Kész
-
         }
     }
 }
