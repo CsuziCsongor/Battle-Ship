@@ -19,7 +19,7 @@ namespace Battle_Ship
             Application.Run(new Form1());
             //A projekt elkezdodott, winter is coming
             //csds
-            //cs
+            //css
         }
     }
 }
