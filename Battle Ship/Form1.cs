@@ -68,17 +68,17 @@ namespace Battle_Ship
                 if (playerScore > enemyScore)
                 {
                     MessageBox.Show("Te nyertél!", "Nyertes");
-                    RestartGame();
+
                 }
                 else if (enemyScore > playerScore)
                 {
                     MessageBox.Show("A gép győzött!", "Vesztettél");
-                    RestartGame();
+
                 }
                 else if (enemyScore == playerScore)
                 {
                     MessageBox.Show("Senki se nyerte ezt a játékot!", "Döntetlen");
-                    RestartGame();
+
                 }
             }
 

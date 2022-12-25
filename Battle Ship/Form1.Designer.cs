@@ -89,7 +89,7 @@
             this.txtEnemy.BackColor = System.Drawing.Color.Transparent;
             this.txtEnemy.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEnemy.ForeColor = System.Drawing.Color.Red;
-            this.txtEnemy.Location = new System.Drawing.Point(673, 283);
+            this.txtEnemy.Location = new System.Drawing.Point(670, 281);
             this.txtEnemy.Name = "txtEnemy";
             this.txtEnemy.Size = new System.Drawing.Size(38, 25);
             this.txtEnemy.TabIndex = 0;
