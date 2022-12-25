@@ -138,9 +138,9 @@
             this.EnemyLocationListBox.DropDownWidth = 95;
             this.EnemyLocationListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EnemyLocationListBox.FormattingEnabled = true;
-            this.EnemyLocationListBox.Location = new System.Drawing.Point(159, 66);
+            this.EnemyLocationListBox.Location = new System.Drawing.Point(135, 65);
             this.EnemyLocationListBox.Name = "EnemyLocationListBox";
-            this.EnemyLocationListBox.Size = new System.Drawing.Size(102, 33);
+            this.EnemyLocationListBox.Size = new System.Drawing.Size(52, 33);
             this.EnemyLocationListBox.TabIndex = 1;
             // 
             // w1
@@ -546,7 +546,7 @@
             // btnAttack
             // 
             this.btnAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAttack.Location = new System.Drawing.Point(297, 61);
+            this.btnAttack.Location = new System.Drawing.Point(191, 65);
             this.btnAttack.Name = "btnAttack";
             this.btnAttack.Size = new System.Drawing.Size(92, 33);
             this.btnAttack.TabIndex = 2;

@@ -32,17 +32,116 @@ namespace Battle_Ship
 
         private void EnemyPlayTimerEvent(object sender, EventArgs e)
         {
+            if(playerPositionButtons.Count > 0 && round > 0)
+            {
+                round -= 1;
+
+                txtRounds.Text = "Round: " + round;
+
+                int index = rand.Next(playerPositionButtons.Count);
+
+                if ((string)playerPositionButtons[index].Tag == "játékosHajó")
+                {
+                    playerPositionButtons[index].BackgroundImage = Properties.Resources.fireIcon;
+                    enemyMove.Text = playerPositionButtons[index].Text;
+                    playerPositionButtons[index].Enabled = false;
+                    playerPositionButtons[index].BackColor = Color.DarkBlue;
+                    playerPositionButtons.RemoveAt(index);
+                    enemyScore += 1;
+                    txtEnemy.Text = enemyScore.ToString();
+                    EnemyPlayTimer.Stop();
+                }
+                else
+                {
+                    playerPositionButtons[index].BackgroundImage = Properties.Resources.missIcon;
+                    enemyMove.Text = playerPositionButtons[index].Text;
+                    playerPositionButtons[index].Enabled = false;
+                    playerPositionButtons[index].BackColor = Color.DarkBlue;
+                    playerPositionButtons.RemoveAt(index);
+                    EnemyPlayTimer.Stop();
+
+                }
+            }
+
+            if(round < 1 || enemyScore > 2 || playerScore > 2)
+            {
+                if (playerScore > enemyScore)
+                {
+                    MessageBox.Show("Te nyertél!", "Nyertes");
+                    RestartGame();
+                }
+                else if (enemyScore > playerScore)
+                {
+                    MessageBox.Show("A gép győzött!", "Vesztettél");
+                    RestartGame();
+                }
+                else if (enemyScore == playerScore)
+                {
+                    MessageBox.Show("Senki se nyerte ezt a játékot!", "Döntetlen");
+                    RestartGame();
+                }
+            }
 
         }
 
+
         private void AttackButtonEvent(object sender, EventArgs e)
         {
+            if(EnemyLocationListBox.Text != "")
+            {
+                var attackPosition = EnemyLocationListBox.Text.ToLower();
 
+                int index = enemyPositionButtons.FindIndex(a => a.Name == attackPosition);
+
+                if(enemyPositionButtons[index].Enabled && round > 0)
+                {
+                    round -= 1;
+                    txtRounds.Text = "Round: " + round;
+
+                    if ((string)enemyPositionButtons[index].Tag == "ellenségesHajó")
+                    {
+                        enemyPositionButtons[index].Enabled = false;
+                        enemyPositionButtons[index].BackgroundImage = Properties.Resources.fireIcon;
+                        enemyPositionButtons[index].BackColor = Color.DarkBlue;
+                        playerScore += 1;
+                        txtPlayer.Text = playerScore.ToString();
+                        EnemyPlayTimer.Start();
+                    }
+                    else
+                    {
+                        enemyPositionButtons[index].Enabled = false;
+                        enemyPositionButtons[index].BackgroundImage = Properties.Resources.missIcon;
+                        enemyPositionButtons[index].BackColor = Color.DarkBlue;
+                        EnemyPlayTimer.Start();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Először válasz egy poziciót a legördülő menüből!", "Információ");
+            }
         }
 
         private void PlayerPositionButtonEvent(object sender, EventArgs e)
         {
+            if (totalShips > 0)
+            {
+                var button = (Button)sender;
 
+                button.Enabled = false;
+                button.Tag = "játékosHajó";
+                button.BackColor = Color.Orange;
+                totalShips -= 1;
+            }
+
+            if(totalShips == 0)
+            {
+                btnAttack.Enabled = true;
+                btnAttack.BackColor = Color.Red;
+                btnAttack.ForeColor = Color.White;
+
+                txtHelp.Text = "2. Most válasz támadasi poziciót a legördülő menüből!";
+            }
         }
 
         private void RestartGame()
@@ -82,7 +181,7 @@ namespace Battle_Ship
 
             txtPlayer.Text = playerScore.ToString();
             txtEnemy.Text = enemyScore.ToString();
-            btnAttack.Text = "A1";
+            btnAttack.Text = "Támadás";
 
             btnAttack.Enabled = false;
 
@@ -99,7 +198,7 @@ namespace Battle_Ship
 
                 if(enemyPositionButtons[index].Enabled == true && (string)enemyPositionButtons[index].Tag == null)
                 {
-                    enemyPositionButtons[index].Tag = "ellenséges hajó";
+                    enemyPositionButtons[index].Tag = "ellenségesHajó";
 
                     Debug.WriteLine("Ellenség poziciója: " + enemyPositionButtons[index].Text);
                 }
