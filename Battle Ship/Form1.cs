@@ -221,5 +221,16 @@ namespace Battle_Ship
         {
               MessageBox.Show("Az ellenfél hajói: " + sb, "Cheat");
         }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string UserInputText = textBox1.Text;
+            label2.Text = UserInputText;
+            label1.Hide();
+            textBox1.Hide();
+            Button btn = (Button)sender;
+            btn.Hide();
+        }
     }
 }
