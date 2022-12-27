@@ -16,7 +16,7 @@ namespace Battle_Ship
     {
         List<Button> playerPositionButtons;
         List<Button> enemyPositionButtons;
-        List<string> enemyShipsPosition = new List<string> {  };
+        StringBuilder sb = new StringBuilder();
 
         Random rand = new Random();
 
@@ -186,8 +186,9 @@ namespace Battle_Ship
 
             btnAttack.Enabled = false;
 
-            enemyLocationPicker();
+            sb.Clear();
 
+            enemyLocationPicker();
 
         }
 
@@ -200,8 +201,7 @@ namespace Battle_Ship
                 if(enemyPositionButtons[index].Enabled == true && (string)enemyPositionButtons[index].Tag == null)
                 {
                     enemyPositionButtons[index].Tag = "ellenségesHajó";
-
-                    enemyShipsPosition.Add("Ellenség poziciója: " + enemyPositionButtons[index].Text);
+                    sb.Append(" " +  enemyPositionButtons[index].Text);
                 }
                 else
                 {
@@ -214,13 +214,12 @@ namespace Battle_Ship
         private void newGameEvent(object sender, EventArgs e)
         {
             RestartGame();
+
         }
 
         private void enemyShipsEvent(object sender, EventArgs e)
         {
-            foreach (string a in enemyShipsPosition)
-                Debug.WriteLine(a);
-            
+              MessageBox.Show("Az ellenfél hajói: " + sb, "Cheat");
         }
     }
 }

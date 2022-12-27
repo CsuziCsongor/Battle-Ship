@@ -71,6 +71,7 @@
             this.EnemyPlayTimer = new System.Windows.Forms.Timer(this.components);
             this.newGame = new System.Windows.Forms.Button();
             this.enemyShips = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtPlayer
@@ -584,6 +585,14 @@
             this.enemyShips.UseVisualStyleBackColor = true;
             this.enemyShips.Click += new System.EventHandler(this.enemyShipsEvent);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(135, 281);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(125, 25);
+            this.textBox1.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -591,6 +600,7 @@
             this.BackgroundImage = global::Battle_Ship.Properties.Resources.backround;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(784, 661);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.enemyShips);
             this.Controls.Add(this.newGame);
             this.Controls.Add(this.d4);
@@ -683,6 +693,7 @@
         private System.Windows.Forms.Timer EnemyPlayTimer;
         private System.Windows.Forms.Button newGame;
         private System.Windows.Forms.Button enemyShips;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
