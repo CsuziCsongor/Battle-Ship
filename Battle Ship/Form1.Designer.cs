@@ -69,6 +69,8 @@
             this.d4 = new System.Windows.Forms.Button();
             this.btnAttack = new System.Windows.Forms.Button();
             this.EnemyPlayTimer = new System.Windows.Forms.Timer(this.components);
+            this.newGame = new System.Windows.Forms.Button();
+            this.enemyShips = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtPlayer
@@ -559,6 +561,29 @@
             this.EnemyPlayTimer.Interval = 1000;
             this.EnemyPlayTimer.Tick += new System.EventHandler(this.EnemyPlayTimerEvent);
             // 
+            // newGame
+            // 
+            this.newGame.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.newGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.newGame.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.newGame.Location = new System.Drawing.Point(360, 12);
+            this.newGame.Name = "newGame";
+            this.newGame.Size = new System.Drawing.Size(75, 23);
+            this.newGame.TabIndex = 3;
+            this.newGame.Text = "Új játék";
+            this.newGame.UseVisualStyleBackColor = false;
+            this.newGame.Click += new System.EventHandler(this.newGameEvent);
+            // 
+            // enemyShips
+            // 
+            this.enemyShips.Location = new System.Drawing.Point(12, 12);
+            this.enemyShips.Name = "enemyShips";
+            this.enemyShips.Size = new System.Drawing.Size(75, 23);
+            this.enemyShips.TabIndex = 4;
+            this.enemyShips.Text = "Ellenfél hajói";
+            this.enemyShips.UseVisualStyleBackColor = true;
+            this.enemyShips.Click += new System.EventHandler(this.enemyShipsEvent);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -566,6 +591,8 @@
             this.BackgroundImage = global::Battle_Ship.Properties.Resources.backround;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(784, 661);
+            this.Controls.Add(this.enemyShips);
+            this.Controls.Add(this.newGame);
             this.Controls.Add(this.d4);
             this.Controls.Add(this.z4);
             this.Controls.Add(this.d3);
@@ -654,6 +681,8 @@
         private System.Windows.Forms.Button d4;
         private System.Windows.Forms.Button btnAttack;
         private System.Windows.Forms.Timer EnemyPlayTimer;
+        private System.Windows.Forms.Button newGame;
+        private System.Windows.Forms.Button enemyShips;
     }
 }
 
