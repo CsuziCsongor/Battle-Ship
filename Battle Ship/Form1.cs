@@ -16,6 +16,7 @@ namespace Battle_Ship
     {
         List<Button> playerPositionButtons;
         List<Button> enemyPositionButtons;
+        StringBuilder sb = new StringBuilder();
 
         Random rand = new Random();
 
@@ -78,7 +79,6 @@ namespace Battle_Ship
                 else if (enemyScore == playerScore)
                 {
                     MessageBox.Show("Senki se nyerte ezt a játékot!", "Döntetlen");
-
                 }
             }
 
@@ -182,11 +182,13 @@ namespace Battle_Ship
             txtPlayer.Text = playerScore.ToString();
             txtEnemy.Text = enemyScore.ToString();
             btnAttack.Text = "Támadás";
+            txtRounds.Text = "Round: " + round.ToString();
 
             btnAttack.Enabled = false;
 
-            enemyLocationPicker();
+            sb.Clear();
 
+            enemyLocationPicker();
 
         }
 
@@ -199,8 +201,7 @@ namespace Battle_Ship
                 if(enemyPositionButtons[index].Enabled == true && (string)enemyPositionButtons[index].Tag == null)
                 {
                     enemyPositionButtons[index].Tag = "ellenségesHajó";
-
-                    Debug.WriteLine("Ellenség poziciója: " + enemyPositionButtons[index].Text);
+                    sb.Append(" " +  enemyPositionButtons[index].Text);
                 }
                 else
                 {
@@ -208,6 +209,28 @@ namespace Battle_Ship
                 }
             }
 
+        }
+
+        private void newGameEvent(object sender, EventArgs e)
+        {
+            RestartGame();
+
+        }
+
+        private void enemyShipsEvent(object sender, EventArgs e)
+        {
+              MessageBox.Show("Az ellenfél hajói: " + sb, "Cheat");
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string UserInputText = textBox1.Text;
+            label2.Text = UserInputText;
+            label1.Hide();
+            textBox1.Hide();
+            Button btn = (Button)sender;
+            btn.Hide();
         }
     }
 }
